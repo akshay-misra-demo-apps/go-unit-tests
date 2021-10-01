@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/misraak/app/api/add"
+	"github.com/misraak/app/web/app/rest"
 )
 
 func main() {
-	fmt.Println(add.Add(5, 10, 5))
+	rest.Register()
 }
