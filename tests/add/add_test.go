@@ -25,7 +25,7 @@ func TestAddAll(t *testing.T) {
 	assert.Equal(t, 3, add.AddAll([]int{1, -1, 3}))
 	assert.Equal(t, 2, add.AddAll([]int{1 / 10, 1, 1}))
 	assert.Equal(t, 0, add.AddAll([]int{0, 1, -1}))
-	assert.Equal(t, 2, add.AddAll([]int{1 % 2, 1, -1}))
+	assert.Equal(t, 1, add.AddAll([]int{1 % 2, 1, -1}))
 	assert.Equal(t, 12, add.AddAll([]int{1, 1, 10}))
 }
 
