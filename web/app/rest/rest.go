@@ -9,7 +9,7 @@ import (
 	"github.com/misraak/app/api/add"
 )
 
-func Register() {
+func Register() error {
 	http.HandleFunc("/add", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
@@ -58,8 +58,15 @@ func Register() {
 		}
 	})
 
-	http.ListenAndServe(":3000", nil)
+	err := http.ListenAndServe(":3000", nil)
+	if err != nil {
+		// Print the error occured while starting the server.
+		fmt.Printf("%+v\n", err.Error())
+		return err
+	}
 	fmt.Println("Server is ready in port 3000")
+
+	return nil
 }
 
 func getNumbersToAdd(request *http.Request) ([]int, error) {
