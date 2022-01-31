@@ -32,3 +32,16 @@ func TestAddAll(t *testing.T) {
 func TestAddAllFail(t *testing.T) {
 	assert.NotEqual(t, 5, add.AddAll([]int{1, 1, 1}))
 }
+
+func TestSumPositive(t *testing.T) {
+	assert.Equal(t, 5, add.SumPositive([]int{1, 1, 1, 1, 1}))
+	assert.Equal(t, -1, add.SumPositive([]int{1, -1, 3}))
+	assert.Equal(t, 2, add.SumPositive([]int{1 / 10, 1, 1}))
+	assert.Equal(t, -1, add.SumPositive([]int{0, 1, -1}))
+	assert.Equal(t, -1, add.SumPositive([]int{1 % 2, 1, -1}))
+	assert.Equal(t, 12, add.SumPositive([]int{1, 1, 10}))
+}
+
+func TestSumPositiveFail(t *testing.T) {
+	assert.NotEqual(t, 1, add.SumPositive([]int{1, 1, -1}))
+}

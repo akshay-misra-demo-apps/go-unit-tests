@@ -47,16 +47,7 @@ func Register() {
 			}
 
 			if len(numbers) > 0 {
-				for _, number := range numbers {
-					if number < 0 {
-						w.WriteHeader(http.StatusOK)
-						json.NewEncoder(w).Encode(-1)
-
-						return
-					}
-				}
-
-				sum := add.AddAll(numbers)
+				sum := add.SumPositive(numbers)
 				w.WriteHeader(http.StatusOK)
 				json.NewEncoder(w).Encode(sum)
 			}
